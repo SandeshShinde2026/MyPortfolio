@@ -67,7 +67,7 @@ Apps should feel like App Store features
 
 🎨 4. Design System (CRITICAL)
 Color Palette (No Gradients)
-Base:
+Dark Theme (Default Base):
 
 
 Background: #0A0A0A (deep black)
@@ -88,10 +88,31 @@ Primary: #FFFFFF
 Secondary: #A1A1AA
 
 
+Light Theme (Alternative Base):
+
+
+Background: #FFFFFF (pure white)
+
+
+Surface: #F5F5F7 (Apple standard light grey)
+
+
+Border: #E5E5EA (iOS-like)
+
+
+Text:
+
+
+Primary: #1D1D1F (Apple standard dark text)
+
+
+Secondary: #86868B
+
+
 Accent (VERY LIMITED USE):
 
 
-Soft blue or white highlight (like iOS buttons)
+Soft blue (#007AFF) or adaptive contrast highlight (like iOS buttons)
 
 
 👉 No neon, no purple gradients.
@@ -339,6 +360,22 @@ CTA:
 “Let’s build something great.”
 
 
+🌗 5.8 Theme Switching
+Functionality:
+
+
+System preference detection with manual override.
+
+
+Smooth, flash-free transitions between modes.
+
+
+UI Integration:
+
+
+Minimalist toggle in the Navbar (subtle icon animation).
+
+
 ⚡ 6. Motion & Interaction Design
 This is where your site becomes “premium”.
 
@@ -398,7 +435,7 @@ Hosting: Vercel
 
 
 🧩 8. Component Architecture
-/components  Navbar.jsx  Hero.jsx  AppCard.jsx  CaseStudy.jsx  TechStack.jsx  Contact.jsx
+/components  Navbar.jsx (with Theme Toggle)  Hero.jsx  AppCard.jsx  CaseStudy.jsx  TechStack.jsx  Contact.jsx
 
 📊 9. Success Metrics
 

@@ -1,0 +1,39 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-border: var(--border-color);
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-accent: var(--accent);
+  --font-sans: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
+}
+
+:root {
+  --background: #ffffff;
+  --surface: #f5f5f7;
+  --border-color: #e5e5ea;
+  --primary: #1d1d1f;
+  --secondary: #86868b;
+  --accent: #007aff;
+}
+
+.dark {
+  --background: #0a0a0a;
+  --surface: #111111;
+  --border-color: #1c1c1e;
+  --primary: #ffffff;
+  --secondary: #a1a1aa;
+  --accent: #007aff;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--primary);
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+}
