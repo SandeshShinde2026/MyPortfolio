@@ -1,0 +1,33 @@
+.falling-images-container {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none; /* Let clicks pass through if empty */
+}
+
+.falling-images-target {
+  display: inline-block;
+  opacity: 1; 
+  pointer-events: none;
+}
+
+.falling-image {
+  display: inline-block;
+  user-select: none;
+  pointer-events: auto; /* For mouse interaction */
+  opacity: 0; /* Hidden until physics starts */
+  transition: transform 0.1s, opacity 0.5s;
+  /* Will-change helps with performance during physics updates */
+  will-change: top, left, transform;
+}
+
+.falling-images-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  pointer-events: auto; /* Enable mouse drag on the canvas */
+}

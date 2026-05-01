@@ -6,10 +6,31 @@ import { HomeScreen } from "./home-screen";
 import { AppWindow } from "./app-window";
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import FallingImages from "@/components/ui/falling-images";
+
+const BASE_TECH_IMAGES = [
+  "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg",
+  "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/swift/swift-original.svg",
+  "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kotlin/kotlin-original.svg",
+  "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/android/android-original.svg",
+  "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flutter/flutter-original.svg",
+  "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/firebase/firebase-plain.svg",
+  "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg",
+  "https://upload.wikimedia.org/wikipedia/commons/3/31/Apple_logo_white.svg",
+];
+
+// Create a massive pile of icons by repeating the base array 5 times
+const TECH_IMAGES = Array(5).fill(BASE_TECH_IMAGES).flat();
 
 export function PhoneFrame() {
   const { bootState, osType, setOsType } = useOsStore();
   const [scale, setScale] = useState(1);
+  const [startPhysics, setStartPhysics] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setStartPhysics(true), 5500);
+    return () => clearTimeout(timer);
+  }, []);
 
   // Update time every minute and handle resize scaling
   useEffect(() => {
@@ -56,6 +77,9 @@ export function PhoneFrame() {
           NATIVE PERFORMANCE. NATIVE PERFORMANCE. NATIVE PERFORMANCE. NATIVE PERFORMANCE. NATIVE PERFORMANCE. NATIVE PERFORMANCE. NATIVE PERFORMANCE. NATIVE PERFORMANCE. 
         </motion.div>
       </div>
+
+      {/* Falling Tech Stack Icons (Physics based) */}
+      <FallingImages imageUrls={TECH_IMAGES} trigger={startPhysics ? "auto" : "none"} gravity={0.3} imageSize={100} />
 
       {/* Zero-size anchor guarantees perfect visual centering regardless of unscaled size */}
       <div className="w-0 h-0 flex items-center justify-center z-10">
@@ -136,7 +160,12 @@ export function PhoneFrame() {
                   key="os" 
                   initial={{ opacity: 0 }} 
                   animate={{ opacity: 1 }} 
-                  className="w-full h-full relative bg-gradient-to-br from-indigo-900 to-black text-white"
+                  className="w-full h-full relative text-white bg-cover bg-center transition-all duration-500"
+                  style={{ 
+                    backgroundImage: osType === 'ios' 
+                      ? `url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop')` 
+                      : `url('https://images.unsplash.com/photo-1614850523459-c2f4c699c52e?q=80&w=2670&auto=format&fit=crop')`
+                  }}
                 >
                   <HomeScreen />
                   <AppWindow />
