@@ -163,7 +163,7 @@ export function PhoneFrame() {
                   className="w-full h-full relative text-white bg-cover bg-center transition-all duration-500"
                   style={{ 
                     backgroundImage: osType === 'ios' 
-                      ? `url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop')` 
+                      ? `url('/ios-wallpaper.jpeg')` 
                       : `url('https://images.unsplash.com/photo-1614850523459-c2f4c699c52e?q=80&w=2670&auto=format&fit=crop')`
                   }}
                 >
