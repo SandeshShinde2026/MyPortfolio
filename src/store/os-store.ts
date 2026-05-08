@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 
-export type AppId = 'process' | 'techStack' | 'contact' | 'project-fintrack' | 'project-healthsync' | 'project-smarthome' | null;
+export type AppId = 'process' | 'techStack' | 'contact' | 'project-trackate' | 'project-healthsync' | 'project-smarthome' | null;
 export type OsType = 'ios' | 'android';
 export type BootState = 'onboarding1' | 'onboarding2' | 'onboarding3' | 'booting' | 'booted';
 

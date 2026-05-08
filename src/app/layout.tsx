@@ -20,7 +20,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${outfit.variable} font-sans antialiased min-h-screen flex flex-col bg-background text-primary`} suppressHydrationWarning>
+      <body className={`${outfit.variable} font-sans antialiased min-h-screen flex flex-col bg-background text-primary relative`} suppressHydrationWarning>
+        <div className="grain-overlay" />
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
           {children}
         </ThemeProvider>

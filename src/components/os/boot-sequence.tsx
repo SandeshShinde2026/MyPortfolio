@@ -23,103 +23,135 @@ export function BootSequence() {
   };
 
   return (
-    <div className="relative w-full h-full bg-[#050505] text-white flex flex-col items-center justify-center p-6 text-center overflow-hidden font-sans">
-      <Starfield speed={1.5} quantity={300} />
+    <div className="relative w-full h-full bg-[#030303] text-white flex flex-col items-center justify-center p-8 text-center overflow-hidden">
+      <Starfield speed={0.5} quantity={150} />
       
-      {/* Subtle ambient glow in the center */}
+      {/* Subtle ambient light */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-        <div className="w-[300px] h-[300px] bg-indigo-500/10 blur-[100px] rounded-full" />
+        <div className="w-[400px] h-[400px] bg-white/[0.03] blur-[120px] rounded-full" />
       </div>
 
       <div className="relative z-10 w-full h-full flex flex-col items-center justify-center">
         <AnimatePresence mode="wait">
           {bootState === 'onboarding1' && (
-            <motion.div key="step1" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0, transition: { duration: 0.5, delay: 5.5, ease: "easeOut" } }} exit={{ opacity: 0, y: -20, filter: "blur(10px)", transition: { duration: 0.3, delay: 0 } }} className="flex flex-col items-center w-full px-4 antialiased">
+            <motion.div 
+              key="step1" 
+              initial={{ opacity: 0 }} 
+              animate={{ opacity: 1, transition: { duration: 1, delay: 5.5 } }} 
+              exit={{ opacity: 0, filter: "blur(20px)", transition: { duration: 0.5 } }} 
+              className="flex flex-col items-center w-full px-4 antialiased"
+            >
               <motion.div 
-                initial={{ opacity: 0, scale: 0.5 }}
-                animate={{ opacity: 1, scale: 1, transition: { duration: 0.8, delay: 5.5, type: "spring", bounce: 0.4 } }}
-                className="w-28 h-28 rounded-full bg-gradient-to-br from-white/10 to-transparent border border-white/20 shadow-2xl flex items-center justify-center mb-8 overflow-hidden backdrop-blur-xl relative"
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1, transition: { duration: 1.2, delay: 5.5, ease: [0.16, 1, 0.3, 1] } }}
+                className="w-24 h-24 rounded-full bg-white/[0.05] border border-white/10 shadow-2xl flex items-center justify-center mb-10 overflow-hidden backdrop-blur-2xl relative group"
               >
-                 <Image src="/profile.jpg" alt="Sandesh Shinde" fill className="object-cover relative z-10" sizes="(max-width: 768px) 112px, 112px" priority />
+                 <Image src="/profile.jpg" alt="Sandesh Shinde" fill className="object-cover relative z-10 grayscale group-hover:grayscale-0 transition-all duration-700" sizes="96px" priority />
+                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent z-20" />
               </motion.div>
+              
               <motion.h1 
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0, transition: { duration: 0.8, delay: 5.7, ease: "easeOut" } }}
-                className="text-5xl md:text-6xl font-extrabold tracking-tight leading-tight text-balance mb-3 bg-clip-text text-transparent bg-gradient-to-br from-white via-white/90 to-blue-200 drop-shadow-sm min-h-[60px] w-full text-center"
+                initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
+                animate={{ opacity: 1, y: 0, filter: "blur(0px)", transition: { duration: 1, delay: 5.8, ease: "easeOut" } }}
+                className="text-4xl md:text-5xl font-bold tracking-tight leading-tight text-white mb-4 drop-shadow-2xl"
               >
                 Sandesh Shinde
               </motion.h1>
+              
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1, transition: { delay: 6.2 } }}
+                className="h-[1px] w-12 bg-white/20 mb-4"
+              />
+
               <motion.p 
-                initial={{ opacity: 0, y: 15 }}
-                animate={{ opacity: 1, y: 0, transition: { duration: 0.8, delay: 5.9, ease: "easeOut" } }}
-                className="text-sm md:text-base font-semibold text-blue-400 tracking-[0.25em] leading-relaxed text-balance uppercase min-h-[28px] w-full text-center opacity-90" 
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0, transition: { duration: 1, delay: 6.4, ease: "easeOut" } }}
+                className="text-xs font-bold text-white/40 tracking-[0.3em] uppercase" 
               >
-                Mobile App Developer
+                Mobile App Developer • iOS & Android
               </motion.p>
             </motion.div>
           )}
 
           {bootState === 'onboarding2' && (
-            <motion.div key="step2" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20, filter: "blur(10px)" }} transition={{ duration: 0.5, ease: "easeOut" }} className="px-6 w-full flex flex-col items-center text-center antialiased">
+            <motion.div 
+              key="step2" 
+              initial={{ opacity: 0, y: 20, filter: "blur(10px)" }} 
+              animate={{ opacity: 1, y: 0, filter: "blur(0px)" }} 
+              exit={{ opacity: 0, scale: 0.95, filter: "blur(20px)" }} 
+              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }} 
+              className="px-6 w-full flex flex-col items-center text-center antialiased"
+            >
               <motion.h2 
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.7, ease: "easeOut" }}
-                className="text-4xl md:text-5xl font-extrabold tracking-tight leading-tight text-balance mb-8 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-indigo-300 drop-shadow-sm min-h-[48px] w-full"
+                className="text-2xl md:text-3xl font-bold tracking-tight text-white/90 mb-10"
               >
-                The Mission
+                The Philosophy
               </motion.h2>
               <SplitText 
                 tag="p" 
-                text="I build scalable Android & iOS apps with pristine UI, real-time sync, and smart integrations." 
-                className="text-xl md:text-2xl text-white/80 leading-relaxed text-pretty font-medium min-h-[160px] w-full max-w-sm mx-auto" 
-                delay={15} 
-                duration={0.4} 
-                splitType="words, chars" 
+                text="I believe in performance as a feature and design as a language. Scalable, native, and uncompromising." 
+                className="text-lg md:text-xl text-white/60 leading-relaxed font-medium max-w-sm mx-auto" 
+                delay={20} 
+                duration={0.6} 
+                splitType="words" 
               />
             </motion.div>
           )}
 
           {bootState === 'onboarding3' && (
-            <motion.div key="step3" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20, filter: "blur(10px)" }} transition={{ duration: 0.5, ease: "easeOut" }} className="flex flex-col items-center w-full px-4 text-center antialiased">
+            <motion.div 
+              key="step3" 
+              initial={{ opacity: 0, scale: 1.1 }} 
+              animate={{ opacity: 1, scale: 1 }} 
+              exit={{ opacity: 0, filter: "blur(20px)" }} 
+              transition={{ duration: 1 }} 
+              className="flex flex-col items-center w-full px-4 text-center antialiased"
+            >
               <motion.h2 
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, ease: "easeOut" }}
-                className="text-4xl md:text-5xl font-extrabold tracking-tight leading-tight text-balance mb-12 bg-clip-text text-transparent bg-gradient-to-br from-white to-white/70 min-h-[48px] w-full"
+                transition={{ duration: 1, delay: 0.2 }}
+                className="text-3xl font-bold tracking-tight text-white mb-16"
               >
-                Ready to boot?
+                Initialize Experience
               </motion.h2>
               <motion.button 
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.8, type: "spring", stiffness: 200, damping: 20 }}
+                transition={{ delay: 0.8, type: "spring", stiffness: 100, damping: 20 }}
                 onClick={handleNext}
-                className="w-20 h-20 rounded-full bg-white text-black flex items-center justify-center shadow-[0_0_40px_rgba(255,255,255,0.4)] hover:shadow-[0_0_60px_rgba(255,255,255,0.6)] hover:scale-105 active:scale-95 transition-all duration-300 group"
+                className="w-20 h-20 rounded-full bg-white text-black flex items-center justify-center shadow-[0_0_50px_rgba(255,255,255,0.2)] hover:shadow-[0_0_80px_rgba(255,255,255,0.4)] hover:scale-105 active:scale-95 transition-all duration-500 group relative overflow-hidden"
               >
-                <Power className="w-8 h-8 stroke-[2.5] group-hover:text-indigo-600 transition-colors" />
+                <div className="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity" />
+                <Power className="w-8 h-8 stroke-[2.5]" />
               </motion.button>
             </motion.div>
           )}
 
           {bootState === 'booting' && (
-            <motion.div key="booting" initial={{ opacity: 0, filter: "blur(10px)" }} animate={{ opacity: 1, filter: "blur(0px)" }} transition={{ duration: 0.8 }} className="flex flex-col items-center">
-              <div className="w-12 h-12 border-[3px] border-white/10 border-t-white rounded-full animate-spin mb-6 shadow-[0_0_30px_rgba(255,255,255,0.2)]" />
-              <p className="text-xs text-white/50 tracking-[0.3em] uppercase font-bold">Booting OS...</p>
+            <motion.div 
+              key="booting" 
+              initial={{ opacity: 0 }} 
+              animate={{ opacity: 1 }} 
+              className="flex flex-col items-center"
+            >
+              <div className="w-10 h-10 border-[2px] border-white/5 border-t-white rounded-full animate-spin mb-8" />
+              <p className="text-[10px] text-white/30 tracking-[0.5em] uppercase font-bold">System Load</p>
             </motion.div>
           )}
         </AnimatePresence>
 
         {bootState !== 'booting' && bootState !== 'onboarding3' && (
-          <div className="absolute bottom-10 w-full left-0 flex justify-center">
+          <div className="absolute bottom-12 w-full left-0 flex justify-center">
             <motion.button 
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: bootState === 'onboarding1' ? 6.5 : 1 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: bootState === 'onboarding1' ? 7.5 : 1.2 }}
               onClick={handleNext}
-              className="flex items-center gap-2 text-xs text-white/60 font-semibold tracking-widest hover:text-white transition-all bg-white/5 hover:bg-white/15 px-6 py-3 rounded-full backdrop-blur-md border border-white/5 hover:border-white/20 uppercase"
+              className="flex items-center gap-3 text-[10px] text-white/40 font-bold tracking-[0.3em] hover:text-white transition-all bg-white/[0.03] hover:bg-white/[0.08] px-8 py-4 rounded-full border border-white/5 uppercase"
             >
-              Continue <ChevronRight className="w-3.5 h-3.5" />
+              Proceed <ChevronRight className="w-3.5 h-3.5" />
             </motion.button>
           </div>
         )}
