@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 
 const IMAGES = [
   "/TrackateDashboardScreen.jpg",
@@ -24,19 +24,21 @@ export function TrackateCarousel() {
   }, []);
 
   return (
-    <div className="w-full h-full relative bg-black">
-      <AnimatePresence>
+    <div className="w-full h-full relative bg-black overflow-hidden">
+      {IMAGES.map((src, index) => (
         <motion.img
-          key={currentIndex}
-          src={IMAGES[currentIndex]}
-          alt="Trackate App Screen"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
+          key={src}
+          src={src}
+          alt={`Trackate App Screen ${index + 1}`}
+          initial={{ opacity: index === 0 ? 1 : 0 }}
+          animate={{ opacity: currentIndex === index ? 1 : 0 }}
           transition={{ duration: 0.8, ease: "easeInOut" }}
           className="absolute inset-0 w-full h-full object-fill"
+          // @ts-ignore
+          fetchPriority={index === 0 ? "high" : "low"}
+          loading={index === 0 ? "eager" : "lazy"}
         />
-      </AnimatePresence>
+      ))}
     </div>
   );
 }
