@@ -84,7 +84,7 @@ export function TrackateDetailsOverlay() {
     <>
       {/* Global Close Button for Trackate */}
       <AnimatePresence>
-        {isTrackate && (
+        {isTrackate && !mobileSheetOpen && (
           <motion.button
             key="global-close"
             initial={{ opacity: 0, scale: 0.8 }}
