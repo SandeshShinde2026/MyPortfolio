@@ -24,7 +24,7 @@ export function AppWindow() {
           className="absolute inset-0 z-50 bg-[#050505] text-white flex flex-col rounded-[44px] overflow-hidden shadow-2xl"
         >
           {/* App Header */}
-          {activeApp !== 'project-trackate' ? (
+          {activeApp !== 'project-trackate' && (
             <div className={`w-full h-20 flex items-center px-6 shrink-0 absolute top-0 left-0 right-0 z-20 ${osType === 'ios' ? 'pt-8' : 'pt-4'} bg-black/40 backdrop-blur-2xl border-b border-white/5`}>
               <button 
                 onClick={closeApp}
@@ -39,13 +39,6 @@ export function AppWindow() {
                 </span>
               </div>
             </div>
-          ) : (
-            <button 
-              onClick={closeApp}
-              className={`absolute z-30 right-4 ${osType === 'ios' ? 'top-14' : 'top-6'} w-10 h-10 bg-black/60 backdrop-blur-xl border border-white/10 rounded-full flex items-center justify-center text-white/80 hover:text-white hover:bg-black/80 transition-all`}
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-            </button>
           )}
 
           {/* App Content */}

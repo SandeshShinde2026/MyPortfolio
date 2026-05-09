@@ -3,7 +3,7 @@ import { useOsStore } from "@/store/os-store";
 import { motion, AnimatePresence } from "framer-motion";
 
 export function TrackateDetailsOverlay() {
-  const { activeApp } = useOsStore();
+  const { activeApp, closeApp } = useOsStore();
   const [mobileSheetOpen, setMobileSheetOpen] = useState(false);
 
   const isTrackate = activeApp === "project-trackate";
@@ -20,10 +20,12 @@ export function TrackateDetailsOverlay() {
         </p>
 
         <div className="flex flex-wrap gap-3 mt-8">
-          <a href="https://play.google.com/store/apps/details?id=com.svnate.trackate" target="_blank" rel="noreferrer" className="flex items-center justify-center px-6 py-3 bg-white text-black rounded-full text-[10px] font-black tracking-[0.2em] uppercase hover:scale-105 transition-transform">
+          <a href="https://play.google.com/store/apps/details?id=com.svnate.trackate" target="_blank" rel="noreferrer" className="flex items-center justify-center gap-2.5 px-6 py-3 bg-white text-black rounded-full text-[10px] font-black tracking-[0.2em] uppercase hover:scale-105 transition-transform">
+            <svg viewBox="0 0 512 512" width="14" height="14" fill="currentColor"><path d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0zm425.2 225.6l-58.9-34.1-65.7 64.5 65.7 64.5 60.1-34.1c18-14.3 18-46.5-1.2-60.8zM104.6 499l280.8-161.2-60.1-60.1L104.6 499z"/></svg>
             Play Store
           </a>
-          <a href="https://trackate.svnate.com/" target="_blank" rel="noreferrer" className="flex items-center justify-center px-6 py-3 bg-white/[0.05] border border-white/10 text-white rounded-full text-[10px] font-black tracking-[0.2em] uppercase hover:bg-white/10 transition-colors">
+          <a href="https://trackate.svnate.com/" target="_blank" rel="noreferrer" className="flex items-center justify-center gap-2.5 px-6 py-3 bg-white/[0.05] border border-white/10 text-white rounded-full text-[10px] font-black tracking-[0.2em] uppercase hover:bg-white/10 transition-colors">
+            <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" strokeWidth="2.5" fill="none" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
             Website
           </a>
         </div>
@@ -80,6 +82,22 @@ export function TrackateDetailsOverlay() {
 
   return (
     <>
+      {/* Global Close Button for Trackate */}
+      <AnimatePresence>
+        {isTrackate && (
+          <motion.button
+            key="global-close"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.8 }}
+            onClick={closeApp}
+            className="fixed top-6 right-6 lg:top-10 lg:right-10 z-[100] w-12 h-12 bg-white/10 backdrop-blur-xl border border-white/20 rounded-full flex items-center justify-center text-white/80 hover:text-white hover:bg-white/20 transition-all shadow-2xl pointer-events-auto"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+          </motion.button>
+        )}
+      </AnimatePresence>
+
       {/* Desktop Overlay (Behind Phone) */}
       <AnimatePresence>
         {isTrackate && (
