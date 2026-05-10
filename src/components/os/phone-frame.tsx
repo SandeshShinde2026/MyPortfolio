@@ -8,6 +8,8 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import FallingImages from "@/components/ui/falling-images";
 import { TrackateDetailsOverlay } from "@/components/trackate-details-overlay";
+import { SpinMealDetailsOverlay } from "@/components/spinmeal-details-overlay";
+
 
 const BASE_TECH_IMAGES = [
   "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg",
@@ -121,6 +123,8 @@ export function PhoneFrame() {
       </div>
 
       <TrackateDetailsOverlay />
+      <SpinMealDetailsOverlay />
+
 
       {/* Main Content Container */}
       <motion.div 

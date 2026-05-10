@@ -8,6 +8,8 @@ import { TechStack } from "../tech-stack";
 import { Contact } from "../contact";
 import { CaseStudy } from "../case-study";
 import { TrackateCarousel } from "../trackate-carousel";
+import { SpinMealCarousel } from "../spinmeal-carousel";
+
 
 export function AppWindow() {
   const { activeApp, closeApp, osType } = useOsStore();
@@ -24,7 +26,7 @@ export function AppWindow() {
           className="absolute inset-0 z-50 bg-[#050505] text-white flex flex-col rounded-[44px] overflow-hidden shadow-2xl"
         >
           {/* App Header */}
-          {activeApp !== 'project-trackate' && (
+          {activeApp !== 'project-trackate' && activeApp !== 'project-spinmeal' && (
             <div className={`w-full h-20 flex items-center px-6 shrink-0 absolute top-0 left-0 right-0 z-20 ${osType === 'ios' ? 'pt-8' : 'pt-4'} bg-black/40 backdrop-blur-2xl border-b border-white/5`}>
               <button 
                 onClick={closeApp}
@@ -42,16 +44,17 @@ export function AppWindow() {
           )}
 
           {/* App Content */}
-          <div className={`flex-1 overflow-y-auto overflow-x-hidden no-scrollbar ${activeApp === 'project-trackate' ? '' : 'pt-20 pb-16'}`}>
+          <div className={`flex-1 overflow-y-auto overflow-x-hidden no-scrollbar ${(activeApp === 'project-trackate' || activeApp === 'project-spinmeal') ? '' : 'pt-20 pb-16'}`}>
             {activeApp === 'process' && <Process />}
             {activeApp === 'techStack' && <TechStack />}
             {activeApp === 'contact' && <Contact />}
             {activeApp === 'project-trackate' && <TrackateCarousel />}
-            {activeApp?.startsWith('project-') && activeApp !== 'project-trackate' && <CaseStudy />}
+            {activeApp === 'project-spinmeal' && <SpinMealCarousel />}
+            {activeApp?.startsWith('project-') && activeApp !== 'project-trackate' && activeApp !== 'project-spinmeal' && <CaseStudy />}
           </div>
 
           {/* Bottom Fade */}
-          {activeApp !== 'project-trackate' && (
+          {activeApp !== 'project-trackate' && activeApp !== 'project-spinmeal' && (
             <div className="absolute bottom-0 inset-x-0 h-12 bg-gradient-to-t from-black to-transparent pointer-events-none z-10" />
           )}
         </motion.div>

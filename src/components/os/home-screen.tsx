@@ -121,7 +121,8 @@ function FolderOverlay({ isIOS }: { isIOS: boolean }) {
         <h3 className={`text-center text-lg font-bold mb-10 tracking-tight ${isIOS ? 'text-black/80' : 'text-white'}`}>Featured Projects</h3>
         <div className="grid grid-cols-3 gap-y-10 gap-x-6 relative z-10">
           <AppIcon isIOS={isIOS} icon={<img src="/TrackateLogo.jpg" alt="Trackate" className="w-[64px] h-[64px] object-cover" />} bg="bg-black overflow-hidden p-0" name="Trackate" onClick={() => { closeFolder(); openApp('project-trackate'); }} />
-          <AppIcon isIOS={isIOS} icon={<span className="font-black text-white text-2xl">HS</span>} bg="bg-[#34C759]" name="HealthSync" onClick={() => { closeFolder(); openApp('project-healthsync'); }} />
+          <AppIcon isIOS={isIOS} icon={<img src="/SpinMealLogo.png" alt="SpinMeal" className="w-[64px] h-[64px] object-cover" />} bg="bg-white overflow-hidden p-0" name="SpinMeal" onClick={() => { closeFolder(); openApp('project-spinmeal'); }} />
+
           <AppIcon isIOS={isIOS} icon={<span className="font-black text-white text-2xl">SC</span>} bg="bg-[#AF52DE]" name="SmartHome" onClick={() => { closeFolder(); openApp('project-smarthome'); }} />
         </div>
       </motion.div>
