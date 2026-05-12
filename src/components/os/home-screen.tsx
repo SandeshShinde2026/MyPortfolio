@@ -1,7 +1,7 @@
 "use client";
 
 import { AppId, useOsStore } from "@/store/os-store";
-import { Folder, Terminal, Layers, Mail, Battery, Wifi, Signal, FileText, Globe, User, Search, Mic } from "lucide-react";
+import { Folder, Terminal, Layers, Mail, Battery, Wifi, Signal, FileText, User, Search, Mic } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export function HomeScreen() {
@@ -70,7 +70,7 @@ export function HomeScreen() {
 
       {/* Dock - OS Specific */}
       <div className={`w-full flex justify-between items-center self-end ${isIOS ? 'h-[92px] bg-white/30 backdrop-blur-[35px] rounded-[38px] px-4 mb-10 border-[0.5px] border-white/30 shadow-[0_10px_40px_-10px_rgba(0,0,0,0.2)]' : 'h-[84px] bg-white/5 backdrop-blur-xl rounded-[32px] px-6 mb-6 border border-white/5 shadow-2xl'}`}>
-         <AppIcon isIOS={isIOS} icon={<Globe className="w-8 h-8 text-white" />} bg="bg-[#34C759]" name="" onClick={() => openApp('contact')} hideName />
+         <AppIcon isIOS={isIOS} icon={<img src="/githubLogo.webp" alt="GitHub" className="w-9 h-9 object-contain rounded-full" />} bg="bg-[#1C1C1E]" name="" onClick={() => window.open('https://github.com/SandeshShinde2026', '_blank')} hideName />
          <AppIcon isIOS={isIOS} icon={<User className="w-8 h-8 text-white" />} bg="bg-[#007AFF]" name="" onClick={() => openApp('contact')} hideName />
          <AppIcon isIOS={isIOS} icon={<FileText className="w-8 h-8 text-white" />} bg="bg-[#FF9500]" name="" onClick={() => openApp('contact')} hideName />
          <AppIcon isIOS={isIOS} icon={<Mail className="w-8 h-8 text-white" />} bg="bg-[#5AC8FA]" name="" onClick={() => openApp('contact')} hideName />
