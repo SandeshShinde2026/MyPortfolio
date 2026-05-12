@@ -74,7 +74,7 @@ export function HomeScreen() {
            onClick={() => window.open('https://github.com/SandeshShinde2026', '_blank')}
            className={`w-[64px] h-[64px] overflow-hidden active:scale-90 transition-all duration-300 border border-white/10 shadow-lg ${isIOS ? 'rounded-[16px]' : 'rounded-full'}`}
          >
-           <img src="/githubLogo.webp" alt="GitHub" className="w-full h-full object-cover" />
+           <img src="/githubLogo.png" alt="GitHub" className="w-full h-full object-cover" />
          </button>
          <button
            onClick={() => window.open('https://www.linkedin.com/in/sandesh-shinde-b491aa246', '_blank')}
