@@ -80,7 +80,7 @@ export function HomeScreen() {
            onClick={() => window.open('https://www.linkedin.com/in/sandesh-shinde-b491aa246', '_blank')}
            className={`w-[64px] h-[64px] overflow-hidden active:scale-90 transition-all duration-300 border border-white/10 shadow-lg ${isIOS ? 'rounded-[16px]' : 'rounded-full'}`}
          >
-           <img src="/linkedinlogo.jpg" alt="LinkedIn" className="w-full h-full object-cover" />
+           <img src="/linkedinlogofinal.png" alt="LinkedIn" className="w-full h-full object-cover" />
          </button>
          <AppIcon isIOS={isIOS} icon={<FileText className="w-8 h-8 text-white" />} bg="bg-[#FF9500]" name="" onClick={() => openApp('contact')} hideName />
          <AppIcon isIOS={isIOS} icon={<Mail className="w-8 h-8 text-white" />} bg="bg-[#5AC8FA]" name="" onClick={() => openApp('contact')} hideName />
