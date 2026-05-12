@@ -70,8 +70,18 @@ export function HomeScreen() {
 
       {/* Dock - OS Specific */}
       <div className={`w-full flex justify-between items-center self-end ${isIOS ? 'h-[92px] bg-white/30 backdrop-blur-[35px] rounded-[38px] px-4 mb-10 border-[0.5px] border-white/30 shadow-[0_10px_40px_-10px_rgba(0,0,0,0.2)]' : 'h-[84px] bg-white/5 backdrop-blur-xl rounded-[32px] px-6 mb-6 border border-white/5 shadow-2xl'}`}>
-         <AppIcon isIOS={isIOS} icon={<img src="/githubLogo.webp" alt="GitHub" className="w-[64px] h-[64px] object-cover" />} bg="bg-black overflow-hidden p-0" name="" onClick={() => window.open('https://github.com/SandeshShinde2026', '_blank')} hideName />
-         <AppIcon isIOS={isIOS} icon={<img src="/linkedinlogo.jpg" alt="LinkedIn" className="w-[64px] h-[64px] object-cover" />} bg="bg-[#0A66C2] overflow-hidden p-0" name="" onClick={() => window.open('https://www.linkedin.com/in/sandesh-shinde-b491aa246', '_blank')} hideName />
+         <button
+           onClick={() => window.open('https://github.com/SandeshShinde2026', '_blank')}
+           className={`w-[64px] h-[64px] overflow-hidden active:scale-90 transition-all duration-300 border border-white/10 shadow-lg ${isIOS ? 'rounded-[16px]' : 'rounded-full'}`}
+         >
+           <img src="/githubLogo.webp" alt="GitHub" className="w-full h-full object-cover" />
+         </button>
+         <button
+           onClick={() => window.open('https://www.linkedin.com/in/sandesh-shinde-b491aa246', '_blank')}
+           className={`w-[64px] h-[64px] overflow-hidden active:scale-90 transition-all duration-300 border border-white/10 shadow-lg ${isIOS ? 'rounded-[16px]' : 'rounded-full'}`}
+         >
+           <img src="/linkedinlogo.jpg" alt="LinkedIn" className="w-full h-full object-cover" />
+         </button>
          <AppIcon isIOS={isIOS} icon={<FileText className="w-8 h-8 text-white" />} bg="bg-[#FF9500]" name="" onClick={() => openApp('contact')} hideName />
          <AppIcon isIOS={isIOS} icon={<Mail className="w-8 h-8 text-white" />} bg="bg-[#5AC8FA]" name="" onClick={() => openApp('contact')} hideName />
       </div>
