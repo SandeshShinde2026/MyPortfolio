@@ -50,7 +50,13 @@ export function HomeScreen() {
           </div>
 
           <AppIcon isIOS={isIOS} icon={<Layers className="w-8 h-8 text-white" />} bg="bg-gradient-to-br from-[#FF5E50] to-[#FF2D55]" name="Process" onClick={() => openApp('process')} />
-          <AppIcon isIOS={isIOS} icon={<Terminal className="w-8 h-8 text-white" />} bg="bg-[#1C1C1E]" name="Stack" onClick={() => openApp('techStack')} />
+          <AppIcon 
+            isIOS={isIOS} 
+            icon={<img src={isIOS ? "/appleshortcuts.svg" : "/andriodsettings.png"} alt="Stack" className="w-[64px] h-[64px] object-cover" />} 
+            bg="bg-transparent overflow-hidden p-0" 
+            name="Stack" 
+            onClick={() => openApp('techStack')} 
+          />
         </div>
       </div>
 
