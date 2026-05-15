@@ -215,7 +215,7 @@ export function PhoneFrame() {
                     style={{ 
                       backgroundImage: osType === 'ios' 
                         ? `url('/ios-wallpaper.jpeg')` 
-                        : `url('https://images.unsplash.com/photo-1614850523459-c2f4c699c52e?q=80&w=2670&auto=format&fit=crop')`
+                        : `url('/andriodwallpaper.jpg')`
                     }}
                   >
                     <HomeScreen />

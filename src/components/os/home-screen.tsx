@@ -37,12 +37,12 @@ export function HomeScreen() {
           <div className="flex flex-col items-center gap-1.5 group">
             <button 
               onClick={() => openFolder('featured-projects')}
-              className={`w-[64px] h-[64px] bg-white/40 backdrop-blur-3xl p-3 grid grid-cols-2 gap-1.5 content-center items-center shadow-lg group-active:scale-90 transition-all duration-300 border border-white/20 ${isIOS ? 'rounded-[16px]' : 'rounded-[24px]'}`}
+              className={`w-[64px] h-[64px] ${isIOS ? 'bg-white/40 backdrop-blur-3xl p-3 border border-white/20 rounded-[16px]' : 'bg-[#e5e5e5]/20 backdrop-blur-lg p-[10px] rounded-[24px]'} grid grid-cols-2 gap-1.5 content-center items-center shadow-lg group-active:scale-90 transition-all duration-300`}
             >
-              <div className={`w-full aspect-square bg-[#007AFF] shadow-sm ${isIOS ? 'rounded-[5px]' : 'rounded-[8px]'}`} />
-              <div className={`w-full aspect-square bg-[#5856D6] shadow-sm ${isIOS ? 'rounded-[5px]' : 'rounded-[8px]'}`} />
-              <div className={`w-full aspect-square bg-[#34C759] shadow-sm ${isIOS ? 'rounded-[5px]' : 'rounded-[8px]'}`} />
-              <div className={`w-full aspect-square bg-white/30 ${isIOS ? 'rounded-[5px]' : 'rounded-[8px]'}`} />
+              <div className={`w-full aspect-square bg-[#007AFF] shadow-sm ${isIOS ? 'rounded-[5px]' : 'rounded-[6px]'}`} />
+              <div className={`w-full aspect-square bg-[#5856D6] shadow-sm ${isIOS ? 'rounded-[5px]' : 'rounded-[6px]'}`} />
+              <div className={`w-full aspect-square bg-[#34C759] shadow-sm ${isIOS ? 'rounded-[5px]' : 'rounded-[6px]'}`} />
+              <div className={`w-full aspect-square bg-white/30 ${isIOS ? 'rounded-[5px]' : 'rounded-[6px]'}`} />
             </button>
             <span className={`text-[11px] font-medium tracking-tight drop-shadow-sm ${isIOS ? 'text-black/80' : 'text-white'}`}>Projects</span>
           </div>
@@ -52,42 +52,42 @@ export function HomeScreen() {
         </div>
       </div>
 
-      {/* Android Search Bar - Pixel Style */}
+      {/* Android Search Bar - Samsung Style */}
       {!isIOS && (
-        <div className="w-full px-2 mb-8">
-          <div className="w-full h-14 bg-[#F1F3F4]/10 backdrop-blur-2xl rounded-full flex items-center px-5 border border-white/10 shadow-xl group">
+        <div className="w-full px-1 mb-8">
+          <div className="w-full h-[52px] bg-white/95 backdrop-blur-md rounded-full flex items-center px-5 shadow-sm group">
              <div className="flex items-center gap-3 flex-grow">
-               <svg viewBox="0 0 24 24" className="w-5 h-5 fill-white/60"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" /><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" /><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" /><path d="M12 5.38c1.62 0 3.06.56 4.21 1.66l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" /></svg>
-               <span className="text-white/40 text-[15px] font-normal">Search...</span>
+               <svg viewBox="0 0 24 24" className="w-5 h-5 fill-[#4285F4]"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" /><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853" /><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05" /><path d="M12 5.38c1.62 0 3.06.56 4.21 1.66l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335" /></svg>
+               <span className="text-gray-500 text-[15px] font-normal">Search...</span>
              </div>
              <div className="flex items-center gap-4">
-               <Mic className="w-5 h-5 text-white/60" />
-               <div className="w-5 h-5 border-2 border-white/40 rounded-[4px] relative after:absolute after:inset-1 after:bg-white/40 after:rounded-full" />
+               <Mic className="w-5 h-5 text-gray-500" />
+               <div className="w-5 h-5 border-2 border-gray-500 rounded-[6px] relative after:absolute after:inset-1 after:bg-gray-500 after:rounded-full" />
              </div>
           </div>
         </div>
       )}
 
       {/* Dock - OS Specific */}
-      <div className={`w-full flex justify-between items-center self-end ${isIOS ? 'h-[92px] bg-white/30 backdrop-blur-[35px] rounded-[38px] px-4 mb-10 border-[0.5px] border-white/30 shadow-[0_10px_40px_-10px_rgba(0,0,0,0.2)]' : 'h-[84px] bg-white/5 backdrop-blur-xl rounded-[32px] px-6 mb-6 border border-white/5 shadow-2xl'}`}>
+      <div className={`w-full flex justify-between items-center self-end ${isIOS ? 'h-[92px] bg-white/30 backdrop-blur-[35px] rounded-[38px] px-4 mb-10 border-[0.5px] border-white/30 shadow-[0_10px_40px_-10px_rgba(0,0,0,0.2)]' : 'h-[76px] px-1 mb-6'}`}>
          <button
            onClick={() => window.open('https://github.com/SandeshShinde2026', '_blank')}
-           className={`w-[64px] h-[64px] overflow-hidden active:scale-90 transition-all duration-300 border border-white/10 shadow-lg ${isIOS ? 'rounded-[16px]' : 'rounded-full'}`}
+           className={`w-[64px] h-[64px] overflow-hidden active:scale-90 transition-all duration-300 shadow-sm ${isIOS ? 'border border-white/10 rounded-[16px]' : 'rounded-[24px]'}`}
          >
            <img src="/githubLogo.png" alt="GitHub" className="w-full h-full object-cover" />
          </button>
          <button
            onClick={() => window.open('https://www.linkedin.com/in/sandesh-shinde-b491aa246', '_blank')}
-           className={`w-[64px] h-[64px] overflow-hidden active:scale-90 transition-all duration-300 border border-white/10 shadow-lg ${isIOS ? 'rounded-[16px]' : 'rounded-full'}`}
+           className={`w-[64px] h-[64px] overflow-hidden active:scale-90 transition-all duration-300 shadow-sm ${isIOS ? 'border border-white/10 rounded-[16px]' : 'rounded-[24px]'}`}
          >
            <img src="/linkedinlogofinal.png" alt="LinkedIn" className="w-full h-full object-cover" />
          </button>
          <AppIcon isIOS={isIOS} icon={<FileText className="w-8 h-8 text-white" />} bg="bg-[#FF9500]" name="" onClick={() => openApp('contact')} hideName />
          <button
            onClick={() => window.open('https://mail.google.com/mail/?view=cm&fs=1&to=sandeshshinde2026@gmail.com', '_blank')}
-           className={`w-[64px] h-[64px] overflow-hidden active:scale-90 transition-all duration-300 border border-white/10 shadow-lg ${isIOS ? 'rounded-[16px]' : 'rounded-full bg-white flex items-center justify-center'}`}
+           className={`w-[64px] h-[64px] overflow-hidden active:scale-90 transition-all duration-300 shadow-sm ${isIOS ? 'border border-white/10 rounded-[16px]' : 'rounded-[24px] bg-white flex items-center justify-center'}`}
          >
-           <img src={isIOS ? "/iosmail.svg" : "/gmail.svg"} alt="Mail" className={isIOS ? "w-full h-full object-cover" : "w-[58%] h-[58%] object-contain"} />
+           <img src={isIOS ? "/iosmail.svg" : "/gmail.svg"} alt="Mail" className={isIOS ? "w-full h-full object-cover" : "w-[60%] h-[60%] object-contain"} />
          </button>
       </div>
 
@@ -104,9 +104,9 @@ function AppIcon({ icon, bg, name, onClick, hideName = false, isIOS }: { icon: R
     <div className="flex flex-col items-center gap-1.5 group">
       <button 
         onClick={onClick}
-        className={`w-[64px] h-[64px] ${bg} ${isIOS ? 'rounded-[16px] shadow-[0_4px_12px_-2px_rgba(0,0,0,0.15)]' : 'rounded-full shadow-lg'} flex items-center justify-center active:scale-90 transition-all duration-300 border border-white/10 relative overflow-hidden`}
+        className={`w-[64px] h-[64px] ${bg} ${isIOS ? 'rounded-[16px] shadow-[0_4px_12px_-2px_rgba(0,0,0,0.15)] border border-white/10' : 'rounded-[24px] shadow-sm'} flex items-center justify-center active:scale-90 transition-all duration-300 relative overflow-hidden`}
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-white/10 to-transparent opacity-50" />
+        {isIOS && <div className="absolute inset-0 bg-gradient-to-b from-white/10 to-transparent opacity-50" />}
         <div className="relative z-10 transition-transform duration-300 group-hover:scale-110 drop-shadow-sm">{icon}</div>
       </button>
       {!hideName && <span className={`text-[11px] font-medium tracking-tight drop-shadow-sm ${isIOS ? 'text-black/80' : 'text-white'}`}>{name}</span>}
@@ -122,7 +122,7 @@ function FolderOverlay({ isIOS }: { isIOS: boolean }) {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="absolute inset-0 z-40 bg-black/20 backdrop-blur-2xl flex items-center justify-center"
+      className="absolute inset-0 z-40 bg-black/40 backdrop-blur-xl flex items-center justify-center"
       onClick={closeFolder}
     >
       <motion.div 
@@ -130,7 +130,7 @@ function FolderOverlay({ isIOS }: { isIOS: boolean }) {
         animate={{ scale: 1, opacity: 1 }}
         exit={{ scale: 0.9, opacity: 0 }}
         transition={{ type: "spring", damping: 25, stiffness: 200 }}
-        className={`w-[340px] bg-white/40 backdrop-blur-3xl border border-white/20 p-8 shadow-2xl relative overflow-hidden ${isIOS ? 'rounded-[44px]' : 'rounded-[32px]'}`}
+        className={`w-[340px] ${isIOS ? 'bg-white/40 backdrop-blur-3xl border border-white/20 p-8 rounded-[44px]' : 'bg-[#121212] p-8 rounded-[32px]'} shadow-2xl relative overflow-hidden`}
         onClick={(e) => e.stopPropagation()}
       >
         <h3 className={`text-center text-lg font-bold mb-10 tracking-tight ${isIOS ? 'text-black/80' : 'text-white'}`}>Featured Projects</h3>
