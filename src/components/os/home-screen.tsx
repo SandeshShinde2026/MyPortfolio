@@ -37,12 +37,12 @@ export function HomeScreen() {
           <div className="flex flex-col items-center gap-1.5 group">
             <button 
               onClick={() => openFolder('featured-projects')}
-              className={`w-[64px] h-[64px] ${isIOS ? 'bg-white/40 backdrop-blur-3xl p-3 border border-white/20 rounded-[16px]' : 'bg-[#e5e5e5]/20 backdrop-blur-lg p-[10px] rounded-[24px]'} grid grid-cols-2 gap-1.5 content-center items-center shadow-lg group-active:scale-90 transition-all duration-300`}
+              className={`w-[64px] h-[64px] ${isIOS ? 'bg-white/20 backdrop-blur-2xl backdrop-saturate-200 p-[10px] shadow-[inset_0_1px_2px_rgba(255,255,255,0.6),_inset_0_0_0_1px_rgba(255,255,255,0.15),_0_10px_20px_-5px_rgba(0,0,0,0.15)] rounded-[18px]' : 'bg-[#e5e5e5]/20 backdrop-blur-lg p-[10px] rounded-[24px]'} grid grid-cols-2 gap-1.5 content-center items-center group-active:scale-90 transition-all duration-300`}
             >
-              <div className={`w-full aspect-square bg-[#007AFF] shadow-sm ${isIOS ? 'rounded-[5px]' : 'rounded-[6px]'}`} />
-              <div className={`w-full aspect-square bg-[#5856D6] shadow-sm ${isIOS ? 'rounded-[5px]' : 'rounded-[6px]'}`} />
-              <div className={`w-full aspect-square bg-[#34C759] shadow-sm ${isIOS ? 'rounded-[5px]' : 'rounded-[6px]'}`} />
-              <div className={`w-full aspect-square bg-white/30 ${isIOS ? 'rounded-[5px]' : 'rounded-[6px]'}`} />
+              <div className={`w-full aspect-square bg-[#007AFF] shadow-[inset_0_1px_1px_rgba(255,255,255,0.3)] ${isIOS ? 'rounded-[5px]' : 'rounded-[6px]'}`} />
+              <div className={`w-full aspect-square bg-[#5856D6] shadow-[inset_0_1px_1px_rgba(255,255,255,0.3)] ${isIOS ? 'rounded-[5px]' : 'rounded-[6px]'}`} />
+              <div className={`w-full aspect-square bg-[#34C759] shadow-[inset_0_1px_1px_rgba(255,255,255,0.3)] ${isIOS ? 'rounded-[5px]' : 'rounded-[6px]'}`} />
+              <div className={`w-full aspect-square bg-white/30 shadow-[inset_0_1px_1px_rgba(255,255,255,0.3)] ${isIOS ? 'rounded-[5px]' : 'rounded-[6px]'}`} />
             </button>
             <span className={`text-[11px] font-medium tracking-tight drop-shadow-sm ${isIOS ? 'text-black/80' : 'text-white'}`}>Projects</span>
           </div>
@@ -69,25 +69,28 @@ export function HomeScreen() {
       )}
 
       {/* Dock - OS Specific */}
-      <div className={`w-full flex justify-between items-center self-end ${isIOS ? 'h-[92px] bg-white/30 backdrop-blur-[35px] rounded-[38px] px-4 mb-10 border-[0.5px] border-white/30 shadow-[0_10px_40px_-10px_rgba(0,0,0,0.2)]' : 'h-[76px] px-1 mb-6'}`}>
+      <div className={`w-full flex justify-between items-center self-end ${isIOS ? 'h-[92px] bg-white/20 backdrop-blur-[50px] backdrop-saturate-[180%] rounded-[38px] px-4 mb-10 shadow-[inset_0_1px_2px_rgba(255,255,255,0.6),_inset_0_0_0_1px_rgba(255,255,255,0.1),_0_20px_40px_-10px_rgba(0,0,0,0.25)]' : 'h-[76px] px-1 mb-6'}`}>
          <button
            onClick={() => window.open('https://github.com/SandeshShinde2026', '_blank')}
-           className={`w-[64px] h-[64px] overflow-hidden active:scale-90 transition-all duration-300 shadow-sm ${isIOS ? 'border border-white/10 rounded-[16px]' : 'rounded-[24px]'}`}
+           className={`w-[64px] h-[64px] overflow-hidden active:scale-90 transition-all duration-300 relative ${isIOS ? 'rounded-[18px] shadow-[inset_0_1px_2px_rgba(255,255,255,0.4),_0_10px_20px_-5px_rgba(0,0,0,0.3)]' : 'rounded-[24px] shadow-sm'}`}
          >
            <img src="/githubLogo.png" alt="GitHub" className="w-full h-full object-cover" />
+           {isIOS && <div className="absolute inset-0 rounded-[18px] ring-1 ring-inset ring-white/10 pointer-events-none" />}
          </button>
          <button
            onClick={() => window.open('https://www.linkedin.com/in/sandesh-shinde-b491aa246', '_blank')}
-           className={`w-[64px] h-[64px] overflow-hidden active:scale-90 transition-all duration-300 shadow-sm ${isIOS ? 'border border-white/10 rounded-[16px]' : 'rounded-[24px]'}`}
+           className={`w-[64px] h-[64px] overflow-hidden active:scale-90 transition-all duration-300 relative ${isIOS ? 'rounded-[18px] shadow-[inset_0_1px_2px_rgba(255,255,255,0.4),_0_10px_20px_-5px_rgba(0,0,0,0.3)]' : 'rounded-[24px] shadow-sm'}`}
          >
            <img src="/linkedinlogofinal.png" alt="LinkedIn" className="w-full h-full object-cover" />
+           {isIOS && <div className="absolute inset-0 rounded-[18px] ring-1 ring-inset ring-white/10 pointer-events-none" />}
          </button>
          <AppIcon isIOS={isIOS} icon={<FileText className="w-8 h-8 text-white" />} bg="bg-[#FF9500]" name="" onClick={() => openApp('contact')} hideName />
          <button
            onClick={() => window.open('https://mail.google.com/mail/?view=cm&fs=1&to=sandeshshinde2026@gmail.com', '_blank')}
-           className={`w-[64px] h-[64px] overflow-hidden active:scale-90 transition-all duration-300 shadow-sm ${isIOS ? 'border border-white/10 rounded-[16px]' : 'rounded-[24px] bg-white flex items-center justify-center'}`}
+           className={`w-[64px] h-[64px] overflow-hidden active:scale-90 transition-all duration-300 relative ${isIOS ? 'rounded-[18px] shadow-[inset_0_1px_2px_rgba(255,255,255,0.4),_0_10px_20px_-5px_rgba(0,0,0,0.3)]' : 'rounded-[24px] bg-white shadow-sm flex items-center justify-center'}`}
          >
            <img src={isIOS ? "/iosmail.svg" : "/gmail.svg"} alt="Mail" className={isIOS ? "w-full h-full object-cover" : "w-[60%] h-[60%] object-contain"} />
+           {isIOS && <div className="absolute inset-0 rounded-[18px] ring-1 ring-inset ring-white/10 pointer-events-none" />}
          </button>
       </div>
 
@@ -104,9 +107,9 @@ function AppIcon({ icon, bg, name, onClick, hideName = false, isIOS }: { icon: R
     <div className="flex flex-col items-center gap-1.5 group">
       <button 
         onClick={onClick}
-        className={`w-[64px] h-[64px] ${bg} ${isIOS ? 'rounded-[16px] shadow-[0_4px_12px_-2px_rgba(0,0,0,0.15)] border border-white/10' : 'rounded-[24px] shadow-sm'} flex items-center justify-center active:scale-90 transition-all duration-300 relative overflow-hidden`}
+        className={`w-[64px] h-[64px] ${bg} ${isIOS ? 'rounded-[18px] shadow-[inset_0_1px_2px_rgba(255,255,255,0.5),_inset_0_0_0_1px_rgba(255,255,255,0.1),_0_10px_20px_-5px_rgba(0,0,0,0.3)]' : 'rounded-[24px] shadow-sm'} flex items-center justify-center active:scale-90 transition-all duration-300 relative overflow-hidden`}
       >
-        {isIOS && <div className="absolute inset-0 bg-gradient-to-b from-white/10 to-transparent opacity-50" />}
+        {isIOS && <div className="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/10 to-white/20 pointer-events-none mix-blend-overlay" />}
         <div className="relative z-10 transition-transform duration-300 group-hover:scale-110 drop-shadow-sm">{icon}</div>
       </button>
       {!hideName && <span className={`text-[11px] font-medium tracking-tight drop-shadow-sm ${isIOS ? 'text-black/80' : 'text-white'}`}>{name}</span>}
@@ -122,7 +125,7 @@ function FolderOverlay({ isIOS }: { isIOS: boolean }) {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="absolute inset-0 z-40 bg-black/40 backdrop-blur-xl flex items-center justify-center"
+      className={`absolute inset-0 z-40 flex items-center justify-center ${isIOS ? 'bg-white/5 backdrop-blur-md' : 'bg-black/40 backdrop-blur-xl'}`}
       onClick={closeFolder}
     >
       <motion.div 
@@ -130,7 +133,7 @@ function FolderOverlay({ isIOS }: { isIOS: boolean }) {
         animate={{ scale: 1, opacity: 1 }}
         exit={{ scale: 0.9, opacity: 0 }}
         transition={{ type: "spring", damping: 25, stiffness: 200 }}
-        className={`w-[340px] ${isIOS ? 'bg-white/40 backdrop-blur-3xl border border-white/20 p-8 rounded-[44px]' : 'bg-[#121212] p-8 rounded-[32px]'} shadow-2xl relative overflow-hidden`}
+        className={`w-[340px] ${isIOS ? 'bg-white/30 backdrop-blur-[60px] backdrop-saturate-[200%] p-8 rounded-[44px] shadow-[inset_0_1px_3px_rgba(255,255,255,0.6),_inset_0_0_0_1px_rgba(255,255,255,0.2),_0_40px_80px_rgba(0,0,0,0.3)]' : 'bg-[#121212] p-8 rounded-[32px]'} relative overflow-hidden`}
         onClick={(e) => e.stopPropagation()}
       >
         <h3 className={`text-center text-lg font-bold mb-10 tracking-tight ${isIOS ? 'text-black/80' : 'text-white'}`}>Featured Projects</h3>
