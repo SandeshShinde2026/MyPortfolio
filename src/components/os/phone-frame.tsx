@@ -9,6 +9,7 @@ import { useEffect, useState } from "react";
 import FallingImages from "@/components/ui/falling-images";
 import { TrackateDetailsOverlay } from "@/components/trackate-details-overlay";
 import { SpinMealDetailsOverlay } from "@/components/spinmeal-details-overlay";
+import { SystemDrawer } from "./system-drawer";
 
 
 const BASE_TECH_IMAGES = [
@@ -220,9 +221,16 @@ export function PhoneFrame() {
                   >
                     <HomeScreen />
                     <AppWindow />
+                    <SystemDrawer />
                   </motion.div>
                 )}
               </AnimatePresence>
+
+              {/* Top Drawer Trigger Area */}
+              <div 
+                className="absolute top-0 inset-x-0 h-10 z-[90] cursor-ns-resize"
+                onClick={() => useOsStore.getState().toggleDrawer()}
+              />
 
               {/* Home Indicator */}
               <div className={`absolute left-1/2 -translate-x-1/2 rounded-full z-[80] transition-all duration-500 ${osType === 'ios' ? 'bottom-2 w-[120px] h-1.5 bg-white/40' : 'bottom-1.5 w-[80px] h-1 bg-white/20'}`} />

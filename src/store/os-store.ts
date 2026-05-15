@@ -19,6 +19,10 @@ interface OsState {
   openFolder: (folderId: string) => void;
   closeFolder: () => void;
   
+  isDrawerOpen: boolean;
+  toggleDrawer: () => void;
+  closeDrawer: () => void;
+
   currentTime: Date;
 }
 
@@ -37,5 +41,9 @@ export const useOsStore = create<OsState>((set) => ({
   openFolder: (folderId) => set({ activeFolder: folderId }),
   closeFolder: () => set({ activeFolder: null }),
   
+  isDrawerOpen: false,
+  toggleDrawer: () => set((state) => ({ isDrawerOpen: !state.isDrawerOpen })),
+  closeDrawer: () => set({ isDrawerOpen: false }),
+
   currentTime: new Date(),
 }));

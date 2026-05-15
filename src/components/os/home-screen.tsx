@@ -13,15 +13,17 @@ export function HomeScreen() {
   return (
     <div className="w-full h-full pt-14 pb-4 px-6 flex flex-col relative select-none">
       {/* Status Bar - OS Adaptive */}
-      <div className={`absolute top-0 left-0 w-full h-14 flex justify-between items-center px-10 text-[13px] font-bold z-10 tracking-tight ${isIOS ? 'text-black/90' : 'text-white/90'}`}>
-        <span className="font-semibold">{formattedTime}</span>
-        <div className="flex items-center gap-1.5">
-          <Signal className="w-3.5 h-3.5 fill-current" />
-          <Wifi className="w-4 h-4 fill-current" />
+      <div className={`absolute top-0 left-0 w-full h-16 flex justify-between items-center px-6 pt-1 text-[14px] font-semibold z-10 tracking-tight ${isIOS ? 'text-black/90' : 'text-white/90'}`}>
+        <div className="w-[80px] flex justify-center">
+          <span>{formattedTime}</span>
+        </div>
+        <div className="w-[80px] flex justify-center items-center gap-1.5">
+          <Signal className="w-4 h-4 fill-current" />
+          <Wifi className="w-[18px] h-[18px] fill-current" />
           {isIOS ? (
-            <div className="flex items-center gap-0.5 border-[1.5px] border-current/30 rounded-[4px] px-0.5 h-3 w-6 relative">
-              <div className="bg-current h-full w-[80%] rounded-[1px]" />
-              <div className="absolute -right-[3px] top-1/2 -translate-y-1/2 w-[2px] h-[4px] bg-current/30 rounded-r-full" />
+            <div className="flex items-center gap-0.5 border-[1.5px] border-current/40 rounded-[4px] px-[1.5px] py-[1px] h-[12px] w-[24px] relative opacity-90">
+              <div className="bg-current h-full w-[70%] rounded-[1.5px]" />
+              <div className="absolute -right-[2px] top-1/2 -translate-y-1/2 w-[2px] h-[4px] bg-current/40 rounded-r-full" />
             </div>
           ) : (
             <Battery className="w-5 h-5 fill-current rotate-90" />
