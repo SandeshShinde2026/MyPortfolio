@@ -73,7 +73,7 @@ export function SpinMealDetailsOverlay() {
       <div>
         <h2 className="text-[11px] uppercase tracking-[0.3em] text-white/60 mb-4 font-bold">Tech Stack</h2>
         <div className="flex flex-wrap gap-2">
-          {["Flutter", "Firebase", "Firestore", "Firebase Auth", "Native Deployment"].map((tech, i) => (
+          {["React Native", "Firebase", "Firestore", "Firebase Auth", "Native Deployment"].map((tech, i) => (
             <span key={i} className="px-3 py-1.5 bg-white/[0.05] border border-white/20 rounded-full text-[11px] text-white/90 font-bold backdrop-blur-md hover:bg-white/20 transition-colors cursor-default">
               {tech}
             </span>
