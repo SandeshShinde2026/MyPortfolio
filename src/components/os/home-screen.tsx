@@ -92,7 +92,7 @@ export function HomeScreen() {
            <img src="/linkedinlogofinal.png" alt="LinkedIn" className="w-full h-full object-cover" />
            {isIOS && <div className="absolute inset-0 rounded-[18px] ring-1 ring-inset ring-white/10 pointer-events-none" />}
          </button>
-         <AppIcon isIOS={isIOS} icon={<FileText className="w-8 h-8 text-white" />} bg="bg-[#FF9500]" name="" onClick={() => openApp('contact')} hideName />
+         <AppIcon isIOS={isIOS} icon={<FileText className="w-8 h-8 text-white" />} bg="bg-[#FF9500]" name="" onClick={() => window.open('/Sandesh_Resume_portfolio.pdf', '_blank')} hideName />
          <button
            onClick={() => window.open('https://mail.google.com/mail/?view=cm&fs=1&to=sandeshshinde2026@gmail.com', '_blank')}
            className={`w-[64px] h-[64px] overflow-hidden active:scale-90 transition-all duration-300 relative ${isIOS ? 'rounded-[18px] shadow-[inset_0_1px_2px_rgba(255,255,255,0.4),_0_10px_20px_-5px_rgba(0,0,0,0.3)]' : 'rounded-[24px] bg-white shadow-sm flex items-center justify-center'}`}
