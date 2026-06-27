@@ -1,6 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useState } from "react";
+import { useAutoAnimate } from "@formkit/auto-animate/react";
 
 const STEPS = [
   {
@@ -25,6 +27,46 @@ const STEPS = [
   }
 ];
 
+function ProcessStep({ step, index }: { step: typeof STEPS[0], index: number }) {
+  const [isOpen, setIsOpen] = useState(index === 0);
+  const [parent] = useAutoAnimate();
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 0.5, delay: index * 0.1, ease: "easeOut" }}
+      className="relative p-5 rounded-2xl bg-surface border border-border overflow-hidden cursor-pointer hover:border-primary/50 transition-colors"
+      onClick={() => setIsOpen(!isOpen)}
+      ref={parent}
+    >
+      <span className="absolute -top-4 -right-2 text-[60px] font-bold text-border/40 dark:text-border/30 select-none leading-none z-0">
+        {step.num}
+      </span>
+      <div className="relative z-10">
+        <div className="flex items-center justify-between mb-2">
+          <h3 className={`text-lg font-semibold transition-colors ${isOpen ? 'text-primary' : 'text-secondary'}`}>
+            {step.title}
+          </h3>
+          <div className="text-secondary/50">
+            {isOpen ? (
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
+            ) : (
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            )}
+          </div>
+        </div>
+        {isOpen && (
+          <p className="text-sm text-secondary leading-relaxed mt-3">
+            {step.desc}
+          </p>
+        )}
+      </div>
+    </motion.div>
+  );
+}
+
 export function Process() {
   return (
     <section className="w-full px-4 py-6 bg-background min-h-full">
@@ -46,26 +88,7 @@ export function Process() {
 
         <div className="flex flex-col gap-6 pt-2">
           {STEPS.map((step, i) => (
-            <motion.div
-              key={step.num}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: i * 0.1, ease: "easeOut" }}
-              className="relative p-5 rounded-2xl bg-surface border border-border overflow-hidden"
-            >
-              <span className="absolute -top-4 -right-2 text-[60px] font-bold text-border/40 dark:text-border/30 select-none leading-none z-0">
-                {step.num}
-              </span>
-              <div className="relative z-10">
-                <h3 className="text-lg font-semibold text-primary mb-2">
-                  {step.title}
-                </h3>
-                <p className="text-sm text-secondary leading-relaxed">
-                  {step.desc}
-                </p>
-              </div>
-            </motion.div>
+            <ProcessStep key={step.num} step={step} index={i} />
           ))}
         </div>
       </div>
